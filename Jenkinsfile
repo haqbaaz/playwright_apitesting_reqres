@@ -1,31 +1,29 @@
 pipeline {
 
-    agent any
+    agent {
+        docker {
+            image 'playwright-apireqres'
+            args '-u root'
+        }
+    }
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/haqbaaz/playwright_apitesting_reqres.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
 
         stage('Install Playwright Browsers') {
             steps {
-                bat 'npx playwright install'
+                sh 'npx playwright install'
             }
         }
 
         stage('Run Playwright Tests') {
             steps {
-                bat 'npx playwright test'
+                sh 'npx playwright test'
             }
         }
 
