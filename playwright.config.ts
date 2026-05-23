@@ -6,7 +6,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 import dotenv from 'dotenv';
 import path from 'path';
-const ENV = process.env.ENV || 'prod';
+const ENV = process.env.ENV || 'pat';
 dotenv.config({ path: path.resolve(__dirname, `.env.${ENV}`) });
 
 /**
