@@ -1,0 +1,19 @@
+{
+  "name": "playwright-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.42.0",
+    "@types/node": "^20.11.21"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "exceljs": "^4.4.0",
+    "playwright-ts": "file:"
+  }
+}
