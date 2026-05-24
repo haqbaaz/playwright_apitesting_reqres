@@ -23,13 +23,23 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-                sh 'npx playwright test'
+                sh 'npx playwright test --reporter=html'
             }
         }
 
     }
 
     post {
+        always {
+            publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Playwright HTML Report'
+            ])
+        }
         success {
             echo '✅ All tests passed!'
         }
