@@ -27,6 +27,7 @@ jobs:
 
       - name: Run Playwright tests
         env:
+          ENV: ${{ secrets.ENV }}
           BASE_URL: ${{ secrets.BASE_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
           NAME: ${{ secrets.NAME }}
