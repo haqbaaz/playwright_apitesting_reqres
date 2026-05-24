@@ -26,6 +26,13 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run Playwright tests
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+          NAME: ${{ secrets.NAME }}
+          GENDER: ${{ secrets.GENDER }}
+          EMAIL: ${{ secrets.EMAIL }}
+          STATUS: ${{ secrets.STATUS }}
         run: npx playwright test --reporter=html
         continue-on-error: true
 
