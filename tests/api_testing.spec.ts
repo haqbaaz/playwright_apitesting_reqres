@@ -4,13 +4,8 @@ import { test, expect, request } from '@playwright/test';
 
 test('api Request', async ({ request }) => {
 
-    const res = await request.get('https://gorest.co.in/public/v2/users/', {
+    const res = await request.get('https://dragonball-api.com/api/characters', {
 
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': `Bearer eecb7be28699026ccb5c0b804b9408687cdf28b2ea1d8f530145a6cd4e180a60`
-        }
 
     })
     console.log(await res.json())
