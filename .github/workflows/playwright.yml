@@ -34,7 +34,10 @@ jobs:
           GENDER: ${{ secrets.GENDER }}
           EMAIL: ${{ secrets.EMAIL }}
           STATUS: ${{ secrets.STATUS }}
-        run: npx playwright test --reporter=html
+        run: |
+          echo "BASE_URL=$BASE_URL"
+          echo "API_TOKEN length=${#API_TOKEN}"
+          npx playwright test --reporter=html
         continue-on-error: true
 
       - name: Upload HTML report
