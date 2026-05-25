@@ -20,6 +20,12 @@ export default defineConfig({
     headless: process.env.CI ? true : false,
     baseURL: process.env.BASE_URL || 'https://gorest.co.in',
 
+    extraHTTPHeaders: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${process.env.API_TOKEN}`
+    }
+
   },
   projects: [
     {
