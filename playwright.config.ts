@@ -19,11 +19,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     headless: process.env.CI ? true : false,
     baseURL: process.env.BASE_URL,
-    extraHTTPHeaders: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${process.env.API_TOKEN}`
-    }
+
   },
   projects: [
     {

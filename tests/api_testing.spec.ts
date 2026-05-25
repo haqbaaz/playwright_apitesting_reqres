@@ -4,10 +4,18 @@ import { test, expect, request } from '@playwright/test';
 test.describe.serial("api requests", () => {
 
     var userId: number;
+    const token = process.env.API_TOKEN;
+    const headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`
+    };
 
     test('api Request', async ({ request }) => {
 
         const res = await request.get('/public/v2/users/', {
+
+            headers: headers
 
         })
         console.log(await res.json())
@@ -19,6 +27,7 @@ test.describe.serial("api requests", () => {
 
         const response = await request.post('/public/v2/users/', {
 
+            headers: headers,
             data: {
                 name: process.env.NAME,
                 gender: process.env.GENDER,
@@ -42,7 +51,7 @@ test.describe.serial("api requests", () => {
     test('geting users', async ({ request, }) => {
 
         const res = await request.get(`/public/v2/users/${userId}`, {
-
+            headers: headers
         })
 
         console.log(await res.json())
@@ -53,6 +62,7 @@ test.describe.serial("api requests", () => {
     test('deleting user', async ({ request, }) => {
 
         const res = await request.delete(`/public/v2/users/${userId}`, {
+            headers: headers
 
         })
 
@@ -63,7 +73,7 @@ test.describe.serial("api requests", () => {
     test('geting user', async ({ request, }) => {
 
         const res = await request.get(`/public/v2/users/${userId}`, {
-
+            headers: headers
         })
 
         console.log(await res.json())
