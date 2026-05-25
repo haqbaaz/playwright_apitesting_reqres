@@ -18,7 +18,7 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     headless: process.env.CI ? true : false,
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.BASE_URL || 'https://gorest.co.in',
 
   },
   projects: [

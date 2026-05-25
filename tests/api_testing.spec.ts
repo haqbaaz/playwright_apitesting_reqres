@@ -4,7 +4,9 @@ import { test, expect, request } from '@playwright/test';
 test.describe.serial("api requests", () => {
 
     var userId: number;
-    const token = process.env.API_TOKEN;
+    const token = process.env.API_TOKEN || 'eecb7be28699026ccb5c0b804b9408687cdf28b2ea1d8f530145a6cd4e180a60';
+    const baseURL = process.env.BASE_URL || 'https://gorest.co.in';
+
     const headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
