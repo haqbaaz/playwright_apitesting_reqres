@@ -3,10 +3,8 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 // Only load .env file locally, not in CI
-if (!process.env.CI) {
-  const ENV = process.env.ENV || 'prod';
-  dotenv.config({ path: path.resolve(__dirname, `.env.${ENV}`) });
-}
+const ENV = process.env.ENV || 'pat';
+dotenv.config({ path: path.resolve(__dirname, `.env.${ENV}`) });
 
 export default defineConfig({
   testDir: './tests',
