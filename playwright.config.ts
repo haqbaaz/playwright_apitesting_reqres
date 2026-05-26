@@ -4,7 +4,7 @@ import path from 'path';
 
 // Only load .env file locally, not in CI
 if (!process.env.CI) {
-  const ENV = process.env.ENV || 'pat';
+  const ENV = process.env.ENV || 'prod';
   dotenv.config({ path: path.resolve(__dirname, `.env.${ENV}`) });
 }
 
@@ -18,7 +18,7 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     headless: process.env.CI ? true : false,
-    baseURL: process.env.BASE_URL || 'https://gorest.co.in',
+    baseURL: process.env.BASE_URL,
 
     extraHTTPHeaders: {
       'Content-Type': 'application/json',

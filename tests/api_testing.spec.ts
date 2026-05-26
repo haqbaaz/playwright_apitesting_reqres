@@ -5,7 +5,6 @@ test.describe.serial("api requests", () => {
 
     var userId: number;
 
-
     test('api Request', async ({ request }) => {
 
         const res = await request.get('/public/v2/users/', {
